@@ -2,13 +2,14 @@
  * @Author: linhao
  * @Date: 2024-08-09 15:40:09
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-09-25 16:51:26
+ * @LastEditTime: 2024-09-25 16:47:12
  * @Description: 请填写简介
 -->
 <script setup lang="ts">
 import { ref, reactive, unref, toRefs, toRef, toValue, toRaw, watch, watchEffect, defineModel } from 'vue'
 
 const props = defineProps<{ msg: string }>()
+console.log('props----', props)
 let count = ref(0)
 let toValueData = unref(count)
 console.log('toValueData----', toValueData)
