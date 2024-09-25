@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue"
+const countNum = ref('我是一个')
+let childNum = ref(0)
+console.log('countNum----->', countNum)
+const changeData = (num: number) => {
+  childNum.value = num
+}
 </script>
 
 <template>
@@ -11,7 +18,16 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue" v-model:countData.trim="countNum" @changeChildNum="changeData">
+    <template #header="headerProps">
+      <span>我是头部{{ headerProps.torefData2 }}</span>
+    </template>
+    <span>我是默认的</span>
+    <template #footer>
+      <span>我是底部</span>
+    </template>
+  </HelloWorld>
+  {{ childNum }}
 </template>
 
 <style scoped>
